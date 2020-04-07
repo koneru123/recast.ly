@@ -1,29 +1,15 @@
 import VideoListEntry from './VideoListEntry.js';
 
-/* class VideoList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    const {videos} = this.props;
-    return (
-      <div className="video-list">
-        {
-          videos.map((currentVdo) => {
-            return <VideoListEntry video={currentVdo} />;
-          })
-        }
-      </div>
-    );
-  }
-} */
 var VideoList = (props) => {
-  //const {videos} = this.props;
+  const { videos, onVideoChange } = props;
   return (
     <div className="video-list">
       {
-        props.videos.map((currentVdo) => {
-          return <VideoListEntry video={currentVdo} />;
+        videos.map((currentVdo, index) => {
+          return <VideoListEntry
+            video={currentVdo}
+            index={index}
+            onVideoChange={onVideoChange} />;
         })
       }
     </div>

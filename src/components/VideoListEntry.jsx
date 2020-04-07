@@ -1,10 +1,11 @@
 
 var VideoListEntry = (props) => {
-  const { video } = props;
+  const { video, index, onVideoChange } = props;
   const { title, description, thumbnails } = video.snippet;
   const { url } = thumbnails.default;
+
   return (
-    <div className="video-list-entry media">
+    <div onClick={()=> onVideoChange(index)} className="video-list-entry media">
       <div className="media-left media-middle">
         <img className="media-object" src={url} alt="" />
       </div>
