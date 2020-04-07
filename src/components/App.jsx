@@ -5,6 +5,10 @@ import exampleVideoData from '../data/exampleVideoData.js';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      videos: exampleVideoData,
+      singleVideo: exampleVideoData[0]
+    };
   }
   render() {
     //const {video} = props;
@@ -17,11 +21,7 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            {
-              exampleVideoData.map((singleVideo) => {
-                return <div><VideoPlayer video={singleVideo}/></div>;
-              })
-            }
+            <div><VideoPlayer video={this.state.singleVideo}/></div>
           </div>
           <div className="col-md-5">
             <VideoList videos={exampleVideoData} />
