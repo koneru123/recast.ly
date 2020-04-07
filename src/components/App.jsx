@@ -1,6 +1,7 @@
 import VideoList from './VideoList.js';
 import VideoPlayer from './VideoPlayer.js';
 import exampleVideoData from '../data/exampleVideoData.js';
+import searchYouTube from '../lib/searchYouTube.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,10 @@ class App extends React.Component {
     };
 
     this.onVideoChange = this.onVideoChange.bind(this);
+  }
+
+  componentDidMount() {
+    searchYouTube.getAllVideos('dogs', (videos) => this.setState({videos, currentVideo: videos[0]}));
   }
 
   onVideoChange(index) {
@@ -29,10 +34,10 @@ class App extends React.Component {
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div><VideoPlayer video={this.state.currentVideo}/></div>
+            <div><VideoPlayer video={this.state.currentVideo} /></div>
           </div>
           <div className="col-md-5">
-            <VideoList videos={exampleVideoData} onVideoChange={this.onVideoChange} />
+            <VideoList videos={this.state.videos} onVideoChange={this.onVideoChange} />
           </div>
         </div>
       </div>
