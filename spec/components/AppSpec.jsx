@@ -1,6 +1,6 @@
 import App from '../../src/components/App.js';
 
-describe('App', function() {
+xdescribe('App', function() {
   var {
     Simulate,
     renderIntoDocument,
@@ -48,7 +48,7 @@ describe('App', function() {
     });
   });
 
-  xdescribe('when rendering live data from YouTube', function() {
+  describe('when rendering live data from YouTube', function() {
     var searchYouTubeStub;
 
     beforeEach(function() {
