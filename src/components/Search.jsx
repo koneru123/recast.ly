@@ -1,9 +1,9 @@
 var Search = (props) => {
-  const {onSubmit} = props;
+  const {onSearchChange, onSubmit} = props;
   return (
     <div className="search-bar form-inline">
-      <input className="form-control" type="text" />
-      <button onSubmit={()=> onSubmit($('.form-control').val())} className="btn hidden-sm-down">
+      <input className="form-control" type="text" onChange={(e)=> onSearchChange(e.target.value)} />
+      <button onClick={()=> onSubmit($('.form-control').val())} className="btn hidden-sm-down">
         <span className="glyphicon glyphicon-search"></span>
       </button>
     </div>

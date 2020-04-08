@@ -16,6 +16,7 @@ class App extends React.Component {
 
     this.onVideoChange = this.onVideoChange.bind(this);
     //this.searchYouTube = this.searchYouTube.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.getVideos = this.getVideos.bind(this);
   }
@@ -37,6 +38,12 @@ class App extends React.Component {
     //this.searchYouTube();
   }
 
+  onSearchChange(searchStr) {
+    this.setState({
+      searchText: searchStr
+    });
+  }
+
   onSubmit(searchStr) {
     this.setState({
       searchText: searchStr
@@ -55,7 +62,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><Search onSubmit={this.onSubmit} /></div>
+            <div><Search onSearchChange={this.onSearchChange} onSubmit={this.onSubmit} /></div>
           </div>
         </nav>
         <div className="row">
